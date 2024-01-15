@@ -25,6 +25,8 @@ describe('navbar test', () => {
     });
 
     it('should change display home when click the button', () => {
+        cy.get('.active > img').should('be.visible')
         cy.get('.right').click({ force: true })
+        cy.get('.next > img')
     });
 });
