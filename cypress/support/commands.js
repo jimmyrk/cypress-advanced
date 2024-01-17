@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (username, password) => {
+    cy.clearCookies()
+    cy.clearLocalStorage()
+
+    // Fill the username field
+    cy.get('[data-test="username"]').clear().type('standard_user');
+    // Fill the password field
+    cy.get('[data-test="password"]').clear().type('secret_sauce');
+    // Click login button
+    cy.get('#login-button').click();
+    // Check alert error
+    // cy.get('[data-test="error"]').should('contains.text', 'Username and password do not match any user in this service');
+});
